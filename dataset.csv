@@ -1,0 +1,61 @@
+pH,Nitrogen,Phosphorus,Potassium,Calcium,Magnesium,Iron,Zinc,Copper,Boron,Organic_Matter,Region,Deficiency,Caused_Disease
+6.5,120,45,80,900,140,5.6,1.2,0.3,0.4,2.1,Himachal,None,None
+6.8,100,35,70,700,120,4.6,1.0,0.2,0.3,1.8,Kashmir,None,None
+7.0,80,25,60,600,100,4.0,0.9,0.2,0.2,1.5,Uttarakhand,Phosphorus Deficiency,Poor root development & reduced fruiting
+5.9,70,20,55,550,90,3.5,0.7,0.1,0.1,1.3,Shimla,Nitrogen Deficiency,Chlorosis and poor leaf growth
+6.2,130,50,90,950,160,6.1,1.3,0.3,0.4,2.3,Manali,None,None
+6.7,110,40,75,850,130,5.0,1.0,0.2,0.3,1.9,California,None,None
+6.3,95,30,65,780,110,4.2,0.8,0.2,0.25,1.6,New York,None,None
+6.1,85,28,60,720,105,4.0,0.7,0.2,0.2,1.4,Washington,None,None
+6.4,115,38,70,870,135,5.2,1.1,0.3,0.3,2.0,Ontario,None,None
+5.8,75,18,50,500,85,3.3,0.5,0.1,0.1,1.1,Quebec,Calcium Deficiency,Bitter pit and internal browning
+6.9,125,47,85,920,150,5.8,1.3,0.3,0.4,2.2,Chile,None,None
+7.1,90,33,68,800,120,4.6,1.0,0.2,0.3,1.7,France,None,None
+6.6,105,37,73,840,125,5.0,1.0,0.2,0.3,1.8,Italy,None,None
+6.0,80,22,58,670,100,3.9,0.7,0.2,0.2,1.4,Germany,Calcium Deficiency,Bitter pit and internal browning
+5.7,60,15,40,430,70,2.8,0.4,0.1,0.1,0.9,China,Calcium Deficiency,Bitter pit and internal browning
+6.0,78,20,50,480,78,3.1,0.5,0.1,0.1,1.0,Japan,Calcium Deficiency,Bitter pit and internal browning
+6.2,88,26,55,600,90,3.7,0.6,0.2,0.15,1.3,Korea,None,None
+7.0,100,36,72,860,132,5.3,1.1,0.2,0.3,1.9,Brazil,None,None
+6.5,108,40,74,890,140,5.5,1.2,0.3,0.4,2.0,New Zealand,None,None
+6.3,102,32,65,760,118,4.7,0.9,0.2,0.25,1.6,Turkey,None,None
+6.7,95,29,62,740,115,4.4,0.8,0.2,0.2,1.5,Afghanistan,None,None
+6.4,79,21,50,590,89,3.2,0.6,0.2,0.1,1.2,Nepal,Calcium Deficiency,Bitter pit and internal browning
+5.9,69,18,47,530,75,2.9,0.5,0.1,0.1,1.0,Bhutan,Potassium Deficiency,Leaf burn and small apples
+6.2,91,27,58,650,95,3.6,0.7,0.2,0.2,1.3,Sikkim,Phosphorus Deficiency,Poor root development & reduced fruiting
+6.8,106,41,76,860,128,5.1,1.0,0.3,0.3,1.9,Nagaland,Zinc Deficiency,Small leaves and stunted growth
+6.5,97,34,68,790,115,4.5,0.9,0.2,0.3,1.7,Meghalaya,Iron Deficiency,Yellowing between veins
+6.3,85,26,54,680,98,3.8,0.6,0.2,0.2,1.4,Tripura,Nitrogen Deficiency,Chlorosis and poor leaf growth
+6.1,72,19,46,610,86,3.0,0.5,0.2,0.15,1.1,Mizoram,Magnesium Deficiency,Interveinal chlorosis
+5.8,64,17,40,470,72,2.7,0.4,0.1,0.1,0.9,Manipur,Copper Deficiency,Dieback of shoots and leaves
+6.0,76,23,52,530,79,3.3,0.6,0.2,0.2,1.2,Assam,Boron Deficiency,Internal browning of fruit
+6.2,84,30,63,700,105,4.1,0.8,0.2,0.2,1.6,West Bengal,Nitrogen Deficiency,Chlorosis and poor leaf growth
+6.1,82,28,59,710,102,4.0,0.75,0.2,0.2,1.5,Haryana,None,None
+6.3,89,33,65,750,110,4.3,0.85,0.25,0.25,1.7,Punjab,None,None
+6.5,92,35,68,780,115,4.5,0.9,0.2,0.3,1.8,Rajasthan,None,None
+6.7,98,38,72,810,120,4.8,1.0,0.25,0.3,1.9,Madhya Pradesh,None,None
+6.4,87,31,66,740,112,4.2,0.85,0.2,0.25,1.6,Uttar Pradesh,None,None
+6.0,75,22,55,620,95,3.5,0.7,0.2,0.2,1.3,Bihar,None,None
+6.2,80,25,60,650,100,3.8,0.75,0.2,0.2,1.4,Odisha,None,None
+6.5,105,40,75,850,130,5.0,1.1,0.3,0.3,1.9,Tamil Nadu,None,None
+6.8,110,42,78,880,135,5.3,1.2,0.3,0.35,2.0,Karnataka,None,None
+6.6,102,37,70,820,125,4.9,1.0,0.25,0.3,1.8,Kerala,None,None
+6.3,90,30,65,760,110,4.1,0.8,0.2,0.25,1.6,Andhra Pradesh,None,None
+6.1,85,28,60,720,105,4.0,0.75,0.2,0.2,1.5,Goa,None,None
+6.4,95,32,68,780,118,4.5,0.9,0.2,0.3,1.7,Sikkim,None,None
+6.2,88,27,62,700,100,3.9,0.8,0.2,0.2,1.5,Nagaland,None,None
+6.6,93,34,70,800,120,4.6,0.95,0.25,0.28,1.8,Himachal,None,None
+6.5,99,36,72,820,125,4.8,1.0,0.2,0.3,1.9,Kashmir,None,None
+6.3,84,28,60,680,105,3.9,0.75,0.2,0.2,1.5,Uttarakhand,Phosphorus Deficiency,Poor root development & reduced fruiting
+5.9,70,18,50,500,80,3.2,0.5,0.1,0.1,1.1,Shimla,Nitrogen Deficiency,Chlorosis and poor leaf growth
+6.1,86,30,65,730,110,4.0,0.8,0.2,0.2,1.6,Manali,None,None
+6.7,110,40,75,850,130,5.0,1.0,0.2,0.3,1.9,California,None,None
+6.2,87,31,62,740,112,4.3,0.85,0.2,0.25,1.6,New York,None,None
+6.4,92,34,68,780,115,4.5,0.9,0.2,0.3,1.7,Washington,None,None
+6.0,78,25,55,620,95,3.6,0.7,0.2,0.2,1.4,Ontario,None,None
+6.5,100,38,70,850,130,5.0,1.1,0.3,0.3,1.9,Quebec,None,None
+6.3,85,28,60,700,105,3.9,0.75,0.2,0.2,1.5,Chile,None,None
+6.1,80,25,60,650,100,3.8,0.7,0.2,0.2,1.4,France,None,None
+6.6,105,37,73,840,125,5.0,1.0,0.2,0.3,1.8,Italy,None,None
+6.4,90,30,65,760,110,4.1,0.8,0.2,0.25,1.6,Germany,None,None
+5.8,65,17,45,480,75,3.0,0.45,0.1,0.1,1.0,China,Calcium Deficiency,Bitter pit and internal browning

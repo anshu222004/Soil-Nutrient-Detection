@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Apple Soil Testing | SmartAppleLab</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #f3f3f3;
+      overflow-x: hidden;
+      padding-top: 50px; /* space for info bar */
+    }
+
+    /* Info / Notification Bar */
+    .info-bar {
+      width: 100%;
+      background: linear-gradient(90deg, #2ecc71, #3498db, #ffb400, #ff4e2e);
+      color: white;
+      font-weight: bold;
+      font-size: 16px;
+      padding: 10px 0;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 200;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
+
+    .ticker {
+      display: flex;
+      white-space: nowrap;
+      will-change: transform;
+      animation: ticker 45s linear infinite;
+    }
+
+    .ticker span {
+      display: inline-block;
+      padding: 0 50px;
+    }
+
+    @keyframes ticker {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    /* Navbar */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      background: green;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 50px;
+      z-index: 100;
+    }
+    header h2 { margin: 0; color: white; font-size: 26px; font-weight: bold; }
+    nav a { margin-left: 20px; text-decoration: none; color: white; font-size: 18px; cursor: pointer; }
+    nav a:hover { color: yellow; }
+
+    /* Hero Section */
+    .hero {
+      background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') center/cover no-repeat;
+      height: 500px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+      padding: 20px;
+      position: relative;
+    }
+    .hero h1 { font-size: 50px; font-weight: 700; margin-bottom: 10px; text-shadow: 1px 1px 5px #000; color: white; }
+    .hero p { font-size: 20px; margin-bottom: 20px; color: black; font-weight: bold; background: rgba(255,255,255,0.7); padding: 8px 15px; border-radius: 5px; }
+    .hero button { padding: 12px 25px; font-size: 18px; border: none; background: #ff4e2e; color: white; border-radius: 5px; cursor: pointer; }
+
+    /* Features */
+    .features { display: flex; justify-content: center; gap: 20px; padding: 40px 0; flex-wrap: wrap; }
+    .box { width: 230px; padding: 25px; color: white; border-radius: 10px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.2); transition: transform 0.3s ease, box-shadow 0.3s ease; cursor: pointer; }
+    .box:hover { transform: translateY(-10px); box-shadow: 0 8px 20px rgba(0,0,0,0.3); }
+    .red { background: #ff4e2e; } .yellow { background: #ffb400; } .green { background: #2ecc71; } .blue { background: #3498db; }
+    .box h3 { margin-bottom: 10px; } .box p { font-size: 15px; }
+
+    /* About */
+    .about { padding: 40px 60px; text-align: center; }
+    .about h2 { font-size: 35px; color: #333; }
+    .about p { max-width: 800px; margin: auto; font-size: 18px; color: #555; }
+
+    /* Footer */
+    footer { background: #222; color: white; text-align: center; padding: 20px; margin-top: 40px; }
+
+    /* Chat Button */
+    #chatbot-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: green;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 1000;
+      color: white;
+      font-size: 28px;
+      font-weight: bold;
+      transition: transform 0.3s ease;
+    }
+    #chatbot-toggle:hover { transform: scale(1.1); }
+
+    /* Chatbot */
+    #chatbot {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      width: 300px;
+      max-height: 400px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transform: translateY(500px);
+      transition: transform 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+      z-index: 999;
+    }
+    #chatbot.open { transform: translateY(0); }
+    #chatbot-header { background: green; color: white; padding: 10px; cursor: pointer; text-align: center; font-weight: bold; }
+    #chatbot-messages { flex: 1; padding: 10px; overflow-y: auto; display: flex; flex-direction: column; }
+    #chatbot-input { display: flex; border-top: 1px solid #ddd; }
+    #chatbot-input input { flex: 1; padding: 10px; border: none; outline: none; }
+    #chatbot-input button { padding: 10px; border: none; background: green; color: white; cursor: pointer; }
+    .message { margin-bottom: 10px; padding: 8px 12px; border-radius: 12px; max-width: 80%; opacity: 0; animation: fadeIn 0.5s forwards; }
+    .user { background: #2ecc71; color: white; align-self: flex-end; }
+    .bot { background: #3498db; color: white; align-self: flex-start; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px);}
+      to { opacity: 1; transform: translateY(0);}
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Info / Notification Bar -->
+  <div class="info-bar">
+    <div class="ticker">
+      <span>🌱 Tip: Apple trees thrive in loamy soil with pH 6.0-6.8.</span>
+      <span>💧 Keep soil moisture around 40-60% for healthy growth.</span>
+      <span>🌾 Nitrogen helps in leaf growth; Phosphorus for roots; Potassium improves fruit quality.</span>
+      <span>🔬 Regular soil testing prevents nutrient deficiencies & boosts yield.</span>
+      <span>🍎 Healthy soil leads to better apple production and disease resistance.</span>
+
+      <!-- Duplicate for smooth ticker loop -->
+      <span>🌱 Tip: Apple trees thrive in loamy soil with pH 6.0-6.8.</span>
+      <span>💧 Keep soil moisture around 40-60% for healthy growth.</span>
+      <span>🌾 Nitrogen helps in leaf growth; Phosphorus for roots; Potassium improves fruit quality.</span>
+      <span>🔬 Regular soil testing prevents nutrient deficiencies & boosts yield.</span>
+      <span>🍎 Healthy soil leads to better apple production and disease resistance.</span>
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <h2>SmartAppleLab</h2>
+    <nav>
+      <a href="start.html">Home</a>
+      <a href="index.html">Start Testing</a>
+      <a href="mineral.html">Minerals</a>
+      <a href="diseases.html">Diseases</a>
+      <a href="contact.html">Contact Us</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>APPLE SOIL TESTING SYSTEM</h1>
+    <p>A Smart System to Detect Soil Minerals & Predict Apple Diseases</p>
+    <button onclick="window.location.href='index.html'">Start Testing</button>
+  </section>
+
+  <!-- Features -->
+  <section class="features">
+    <div class="box red">
+      <h3>Soil Mineral Scan</h3>
+      <p>Instant detection of N, P, K, pH & micronutrients.</p>
+    </div>
+
+    <div class="box yellow">
+      <h3>AI Predictions</h3>
+      <p>Machine Learning predicts apple diseases early.</p>
+    </div>
+
+    <div class="box green">
+      <h3>Farm Recommendations</h3>
+      <p>Get fertilizer & nutrient improvement suggestions.</p>
+    </div>
+
+    <!-- ⭐ UPDATED DOWNLOAD REPORT BOX ⭐ -->
+    <div class="box blue" onclick="window.location.href='download.html'">
+      <h3>Download Report</h3>
+      <p>Get a complete soil health PDF for your farm.</p>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="about">
+    <h2>Welcome to Smart Apple Soil Lab</h2>
+    <p>
+      Apple farmers analyze soil mineral levels, detect nutrient deficiencies,  
+      and predict related diseases using AI/ML. Upload soil data or sensor values  
+      and get instant recommendations to improve apple production.
+    </p>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Smart Apple Soil Testing | Made for Project Use
+  </footer>
+
+  <!-- Chatbot Toggle Button -->
+  <div id="chatbot-toggle" onclick="toggleChat()">💬</div>
+
+  <!-- Chatbot Panel -->
+  <div id="chatbot">
+    <div id="chatbot-header" onclick="toggleChat()">Chat with us</div>
+    <div id="chatbot-messages"></div>
+    <div id="chatbot-input">
+      <input type="text" id="chat-input" placeholder="Type a message...">
+      <button onclick="sendMessage()">Send</button>
+    </div>
+  </div>
+
+  <script>
+    const chatbot = document.getElementById('chatbot');
+    const messages = document.getElementById('chatbot-messages');
+    const toggleBtn = document.getElementById('chatbot-toggle');
+
+    function toggleChat() {
+      chatbot.classList.toggle('open');
+      toggleBtn.style.display = chatbot.classList.contains('open') ? 'none' : 'flex';
+    }
+
+    const replies = {
+      "hi": "Hello! How can I help you with your soil or apple farm today?",
+      "hello": "Hi there! Want to test your soil?",
+      "soil": "You can start soil testing by clicking on 'Start Testing'.",
+      "apple": "I can help predict apple diseases based on soil nutrients.",
+      "report": "You can download a full soil report after testing.",
+      "fertilizer": "I can suggest fertilizers based on soil mineral analysis.",
+      "thank you": "You're welcome! Happy farming 😊",
+      "thanks": "Anytime! 🌱",
+      "ph": "Ideal soil pH for apples is between 6.0-6.8.",
+      "n": "Nitrogen helps in leaf growth; ensure N is adequate.",
+      "p": "Phosphorus helps in root development and flowering.",
+      "k": "Potassium improves fruit quality and resistance to diseases.",
+      "default": "Sorry, I didn't understand. Try asking about soil or apple."
+    };
+
+    function sendMessage() {
+      const userInput = document.getElementById('chat-input').value.toLowerCase();
+      if (!userInput) return;
+
+      const userMsg = document.createElement('div');
+      userMsg.className = 'message user';
+      userMsg.textContent = userInput;
+      messages.appendChild(userMsg);
+
+      const botReply = replies[userInput] || replies['default'];
+      const botMsg = document.createElement('div');
+      botMsg.className = 'message bot';
+      botMsg.textContent = botReply;
+      messages.appendChild(botMsg);
+
+      document.getElementById('chat-input').value = '';
+      messages.scrollTop = messages.scrollHeight;
+    }
+  </script>
+
+</body>
+</html>

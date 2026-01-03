@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us | SmartAppleLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+        }
+
+        header {
+            background: #2d7a35;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 30px;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .contact-container {
+            width: 90%;
+            margin: 40px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .info-box, .form-box {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            transition: 0.3s;
+        }
+
+        .info-box:hover, .form-box:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+        }
+
+        h2 {
+            color: #2d7a35;
+            margin-top: 0;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .contact-item {
+            margin: 12px 0;
+            font-size: 18px;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            border-radius: 10px;
+            border: 1px solid #aaa;
+            font-size: 16px;
+            font-family: inherit;
+        }
+
+        .btn {
+            padding: 12px 20px;
+            width: 100%;
+            font-size: 18px;
+            background: #2d7a35;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .btn:hover {
+            background: #1f5a27;
+        }
+
+        footer {
+            margin: 40px 0;
+            text-align: center;
+            font-size: 18px;
+            color: #2d4f2d;
+            font-weight: bold;
+        }
+    </style>
+
+</head>
+<body>
+
+<header>📞 Contact Us | संपर्क करें</header>
+
+<div class="contact-container">
+
+    <!-- Contact Information -->
+    <div class="info-box">
+        <h2>Get In Touch | संपर्क में रहें</h2>
+
+        <p>
+            Have questions about soil testing, apple nutrient analysis, or want project help?  
+            We are here to support you!
+        </p>
+
+        <p>
+            मिट्टी परीक्षण, सेब पोषक तत्व विश्लेषण या किसी भी सहायता के लिए हमसे संपर्क करें।  
+            हम आपकी मदद के लिए हमेशा तैयार हैं।
+        </p>
+
+        <div class="contact-item"><b>📍 Address:</b> Smart Apple Lab, Himachal Pradesh, India</div>
+        <div class="contact-item"><b>📧 Email:</b> support@smartapplelab.in</div>
+        <div class="contact-item"><b>📞 Phone:</b> +91 98765 43210</div>
+        <div class="contact-item"><b>⏰ Working Hours:</b> 9:00 AM – 6:00 PM</div>
+
+    </div>
+
+    <!-- Contact Form -->
+    <div class="form-box">
+        <h2>Send Us a Message | संदेश भेजें</h2>
+
+        <form>
+            <input type="text" placeholder="Your Name | आपका नाम" required>
+            <input type="email" placeholder="Your Email | आपका ईमेल" required>
+            <input type="text" placeholder="Subject | विषय" required>
+            <textarea rows="5" placeholder="Your Message | अपना संदेश लिखें" required></textarea>
+
+            <button class="btn">Submit</button>
+             <button class="button" onclick="window.location.href='index.html'" style="margin-top: 15px; background: darkgreen;">
+      Back to Home
+        </form>
+    </div>
+
+</div>
+
+<footer>
+    🌿 Your Soil • Your Apple • Your Growth  
+    <br>🌱 आपकी मिट्टी • आपका सेब • आपकी प्रगति
+</footer>
+
+</body>
+</html>

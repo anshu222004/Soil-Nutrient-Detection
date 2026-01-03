@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Minerals | SmartAppleLab</title>
+
+<style>
+    /* Background and font */
+    body {
+        font-family: Arial, sans-serif;
+        background: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1920') no-repeat center center fixed;
+        background-size: cover;
+        margin: 0;
+        padding: 0;
+    }
+
+    header {
+        background: rgba(43,138,62,0.9);
+        color: white;
+        padding: 18px;
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+        letter-spacing: 1px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+    }
+
+    /* Container for cards */
+    .container {
+        width: 90%;
+        margin: 30px auto;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 25px;
+    }
+
+    /* Card style */
+    .card {
+        background: rgba(255,255,255,0.95);
+        border-radius: 15px;
+        padding: 20px;
+        box-shadow: 0 5px 12px rgba(0,0,0,0.2);
+        transition: transform .3s, box-shadow .3s;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .card:hover {
+        transform: translateY(-8px) scale(1.03);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+    }
+
+    /* Animated colored top bar */
+    .card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 5px;
+        background: linear-gradient(90deg, #2ecc71, #3498db, #ff4e2e, #f1c40f);
+        transition: width 0.4s ease-in-out;
+    }
+
+    .card:hover::before {
+        width: 100%;
+    }
+
+    .content h3 {
+        color: #2b8a3e;
+        margin-bottom: 10px;
+        font-size: 22px;
+    }
+
+    .content p {
+        font-size: 16px;
+        line-height: 1.6;
+        color: #333;
+        text-align: justify;
+    }
+
+</style>
+</head>
+<body>
+
+<header>Essential Soil Minerals for Healthy Apple Growth</header>
+
+<!-- Back to Home Button -->
+<div style="text-align:center; margin: 20px 0;">
+  <a href="index.html">
+    <button type="button" style="background:#388E3C; color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+      ← Back to Home
+    </button>
+  </a>
+</div>
+
+
+<div class="container">
+
+    <!-- Nitrogen -->
+    <div class="card">
+        <div class="content">
+            <h3>Nitrogen (N) – Growth Booster  
+            <br>नाइट्रोजन – वृद्धि बढ़ाने वाला</h3>
+            <p>
+                Nitrogen improves leaf growth and chlorophyll formation.  
+                Its deficiency turns leaves yellow.<br><br>
+                नाइट्रोजन पत्तियों की वृद्धि और क्लोरोफिल बनाने में मदद करता है।  
+                कमी से पत्तियाँ पीली होने लगती हैं।
+            </p>
+        </div>
+    </div>
+
+    <!-- Phosphorus -->
+    <div class="card">
+        <div class="content">
+            <h3>Phosphorus (P) – Root & Flower Strength  
+            <br>फास्फोरस – जड़ों और फूलों को मजबूत करता है</h3>
+            <p>
+                Phosphorus helps root development and fruit formation.<br><br>
+                फास्फोरस जड़ों और फलों को मजबूत बनाता है।
+            </p>
+        </div>
+    </div>
+
+    <!-- Potassium -->
+    <div class="card">
+        <div class="content">
+            <h3>Potassium (K) – Sweetness & Size  
+            <br>पोटैशियम – मिठास और आकार बढ़ाता है</h3>
+            <p>
+                Potassium improves fruit color, size & sweetness.<br><br>
+                पोटैशियम फल का रंग, आकार और मिठास बढ़ाता है।
+            </p>
+        </div>
+    </div>
+
+    <!-- Calcium -->
+    <div class="card">
+        <div class="content">
+            <h3>Calcium (Ca) – Strong Fruits  
+            <br>कैल्शियम – फल को मजबूत बनाता है</h3>
+            <p>
+                Prevents fruit cracking and increases storage life.<br><br>
+                फल फटने से रोकता है और शेल्फ लाइफ बढ़ाता है।
+            </p>
+        </div>
+    </div>
+
+    <!-- Sulphur -->
+    <div class="card">
+        <div class="content">
+            <h3>Sulphur (S) – Disease Resistance  
+            <br>सल्फर – रोगों से लड़ने की क्षमता</h3>
+            <p>
+                Helps in protein formation and disease protection.<br><br>
+                सल्फर रोगों से बचाव और प्रोटीन बनाने में मदद करता है।
+            </p>
+        </div>
+    </div>
+
+    <!-- Zinc -->
+    <div class="card">
+        <div class="content">
+            <h3>Zinc (Zn) – Leaf Formation  
+            <br>जिंक – पत्तियों का निर्माण</h3>
+            <p>
+                Zinc helps leaf growth and shoot formation.<br><br>
+                जिंक पत्तियों और नई शाखाओं के विकास में मदद करता है।
+            </p>
+        </div>
+         <button class="button" onclick="window.location.href='index.html'" style="margin-top: 15px; background: darkgreen;">
+      Back to Home
+    </div>
+
+</div>
+
+</body>
+</html>

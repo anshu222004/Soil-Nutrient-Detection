@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apple Soil Diseases | SmartAppleLab</title>
+
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(to bottom, #e8f5e9, #c8e6c9);
+        }
+
+        header {
+            background: #2d7a35;
+            color: white;
+            padding: 18px;
+            font-size: 28px;
+            font-weight: bold;
+            text-align: center;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            width: 90%;
+            margin: 30px auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transition: 0.3s;
+            cursor: pointer;
+            border-left: 6px solid #2d7a35;
+        }
+
+        .card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.25);
+        }
+
+        .card h2 {
+            margin: 0;
+            color: #2d7a35;
+        }
+
+        .toggle-btn {
+            background: #2d7a35;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-top: 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: #1f5a27;
+        }
+
+        .content {
+            display: none;
+            margin-top: 12px;
+            line-height: 1.6;
+        }
+
+        .content p {
+            margin: 5px 0;
+        }
+
+        footer {
+            text-align: center;
+            margin: 40px 0;
+            font-size: 18px;
+            color: #2d4f2d;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function toggleContent(id) {
+            var box = document.getElementById(id);
+            box.style.display = box.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</head>
+<body>
+
+<header>🍏 Apple Soil Nutrient Deficiency Diseases</header>
+
+
+<div class="container">
+
+    <!-- CALCIUM -->
+    <div class="card">
+        <h2>Calcium Deficiency (Ca) – Bitter Pit</h2>
+        <button class="toggle-btn" onclick="toggleContent('calcium')">View Details</button>
+        <div id="calcium" class="content">
+            <p><b>Symptoms:</b> Brown/black sunken spots, dry fruit texture, leaf tip burn.</p>
+            <p><b>Impact:</b> Low fruit quality & storage life.</p>
+            <p><b>Action:</b> Calcium sprays, maintain moisture.</p>
+
+            <p><b>हिंदी (Hindi):</b></p>
+            <p>कैल्शियम की कमी से <b>बिटर पिट</b> होता है। सेब पर काले धब्बे और सूखापन आता है।</p>
+            <p>उपाय: कैल्शियम स्प्रे करें और नमी बनाए रखें।</p>
+        </div>
+    </div>
+
+    <!-- IRON -->
+    <div class="card">
+        <h2>Iron Deficiency (Fe) – Chlorosis</h2>
+        <button class="toggle-btn" onclick="toggleContent('iron')">View Details</button>
+        <div id="iron" class="content">
+            <p><b>Symptoms:</b> Yellow leaves, green veins, slow growth.</p>
+            <p><b>Impact:</b> Low photosynthesis, small fruits.</p>
+            <p><b>Action:</b> Iron chelates, maintain pH.</p>
+
+            <p><b>हिंदी:</b></p>
+            <p>आयरन की कमी में पत्तियाँ पीली और नसें हरी रहती हैं।</p>
+            <p>उपाय: आयरन चेलेट डालें।</p>
+        </div>
+    </div>
+
+    <!-- MAGNESIUM -->
+    <div class="card">
+        <h2>Magnesium Deficiency (Mg)</h2>
+        <button class="toggle-btn" onclick="toggleContent('magnesium')">View Details</button>
+        <div id="magnesium" class="content">
+            <p><b>Symptoms:</b> Yellowing between veins, leaf drop.</p>
+            <p><b>Impact:</b> Low growth & yield.</p>
+            <p><b>Action:</b> Apply magnesium sulphate.</p>
+
+            <p><b>हिंदी:</b></p>
+            <p>मैग्नीशियम की कमी से नसों के बीच पत्तियाँ पीली होती हैं।</p>
+        </div>
+    </div>
+
+    <!-- POTASSIUM -->
+    <div class="card">
+        <h2>Potassium Deficiency (K)</h2>
+        <button class="toggle-btn" onclick="toggleContent('potassium')">View Details</button>
+        <div id="potassium" class="content">
+            <p><b>Symptoms:</b> Leaf edge burn, dull fruit color.</p>
+            <p><b>Impact:</b> Fruit softness, cracking.</p>
+            <p><b>Action:</b> Apply MOP & organic manure.</p>
+
+            <p><b>हिंदी:</b></p>
+            <p>पोटाश की कमी में पत्तियों के किनारे जलते हैं और फल नरम पड़ते हैं।</p>
+        </div>
+    </div>
+
+    <!-- SULPHUR -->
+    <div class="card">
+        <h2>Sulphur Deficiency (S)</h2>
+        <button class="toggle-btn" onclick="toggleContent('sulphur')">View Details</button>
+        <div id="sulphur" class="content">
+            <p><b>Symptoms:</b> Light yellow leaves, weak plant.</p>
+            <p><b>Impact:</b> Low sweetness & fruit quality.</p>
+            <p><b>Action:</b> Apply sulphur fertilizers.</p>
+
+            <p><b>हिंदी:</b></p>
+            <p>सल्फर की कमी से पत्तियाँ हल्की पीली हो जाती हैं और पौधा कमजोर दिखने लगता है।</p>
+        </div>
+    </div>
+
+    <!-- ZINC -->
+    <div class="card">
+        <h2>Zinc Deficiency (Zn)</h2>
+        <button class="toggle-btn" onclick="toggleContent('zinc')">View Details</button>
+        <div id="zinc" class="content">
+            <p><b>Symptoms:</b> Very small leaves, rosette formation.</p>
+            <p><b>Impact:</b> Small fruits, low color.</p>
+            <p><b>Action:</b> Use zinc sulphate.</p>
+
+            <p><b>हिंदी:</b></p>
+            <p>जिंक की कमी में पत्तियाँ छोटी होकर गुच्छों में बन जाती हैं।</p>
+        </div>
+         <button class="button" onclick="window.location.href='index.html'" style="margin-top: 15px; background: darkgreen;">
+      Back to Home
+    </div>
+<button class="button" onclick="window.location.href='index.html'" style="margin-top: 15px; background: darkgreen;">
+      Back to Home
+</div>
+
+
+<footer>
+    🌿 Strong Soil → Strong Roots → Strong Apples  
+    <br>🌱 स्वस्थ मिट्टी → स्वस्थ पेड़ → स्वस्थ किसान
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Official Soil Report | SmartAppleLab</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<img src="https://i.imgur.com/2J7w1zG.png" class="verified-stamp">
+
+  <style>
+    body {
+      font-family: "Poppins", sans-serif;
+      padding: 20px;
+      background: #e8f5e9;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 32px;
+      color: #1b5e20;
+      font-weight: 800;
+      letter-spacing: 1px;
+    }
+
+    .form-section {
+      background: white;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .form-group {
+      margin: 15px 0;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: 1px solid #aaa;
+    }
+
+    textarea { height: 130px; }
+
+    canvas { border: 1px solid #999; background: #fff; border-radius: 8px; }
+
+    button {
+      padding: 12px 25px;
+      background: #1b5e20;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 8px;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+
+    button:hover { background: #104114; }
+
+    /* Certificate Style */
+    .certificate {
+      width: 900px;
+      padding: 30px;
+      margin: 30px auto;
+      background: white;
+      border: 10px solid #2e7d32;
+      border-radius: 20px;
+      display: none;
+      box-shadow: 0 0 25px rgba(0,0,0,0.2);
+      position: relative;
+    }
+
+    .certificate-header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .certificate-header h2 {
+      font-size: 30px;
+      color: #1b5e20;
+      margin: 0;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .verified-stamp {
+      position: absolute;
+      right: 30px;
+      top: 30px;
+      width: 120px;
+      opacity: 0.7;
+    }
+
+    .certificate-body {
+      font-size: 18px;
+      margin-top: 20px;
+      line-height: 1.6;
+    }
+
+    .signature-box {
+      margin-top: 30px;
+    }
+
+    .sig-label {
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <h1>SmartAppleLab – Soil Test Report Generator</h1>
+
+  <!-- Back to Home Button -->
+<div style="text-align:center; margin: 20px 0;">
+  <a href="index.html">
+    <button type="button" style="background:#388E3C; color:white; padding:12px 25px; border:none; border-radius:8px; cursor:pointer; font-size:16px;">
+      ← Back to Home
+    </button>
+  </a>
+</div>
+
+
+  <!-- User Input Section -->
+  <div class="form-section">
+
+    <div class="form-group">
+      <label>Farmer Name</label>
+      <input type="text" id="farmerName" placeholder="Enter farmer name">
+    </div>
+
+    <div class="form-group">
+      <label>Soil Test Results (Auto-filled from your model)</label>
+      <textarea id="soilResults" placeholder="Example: pH: 6.5, Nitrogen: Low, Zinc: High"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label>Signature (Draw Below)</label>
+      <canvas id="signature" width="500" height="180"></canvas>
+      <button onclick="clearSignature()">Clear Signature</button>
+    </div>
+
+    <button onclick="downloadPDF()">Download Official Report</button>
+
+  </div>
+
+  <!-- Certificate Layout -->
+  <div class="certificate" id="reportCertificate">
+
+    <img src="https://i.imgur.com/2J7w1zG.png" class="verified-stamp">
+
+    <div class="certificate-header">
+      <h2>Official Soil Health Certificate</h2>
+      <p>Issued by SmartAppleLab (Agriculture & Soil Research Division)</p>
+    </div>
+
+    <div class="certificate-body">
+      <p><strong>Farmer Name:</strong> <span id="cName"></span></p>
+      <p><strong>Date & Time:</strong> <span id="cDate"></span></p>
+      <p><strong>Verified Soil Test Summary:</strong></p>
+      <pre id="cResults"></pre>
+
+      <div class="signature-box">
+        <p class="sig-label">Authorized Signature:</p>
+        <canvas id="cSignature" width="400" height="150"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Signature panel
+    const canvas = document.getElementById("signature");
+    const ctx = canvas.getContext("2d");
+    let draw = false;
+
+    canvas.onmousedown = () => draw = true;
+    canvas.onmouseup = () => draw = false;
+    canvas.onmouseout = () => draw = false;
+    canvas.onmousemove = function(e) {
+      if (!draw) return;
+      const r = canvas.getBoundingClientRect();
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+      ctx.strokeStyle = "black";
+      ctx.lineTo(e.clientX - r.left, e.clientY - r.top);
+      ctx.stroke();
+      ctx.beginPath();
+      ctx.moveTo(e.clientX - r.left, e.clientY - r.top);
+    };
+
+    function clearSignature() {
+      ctx.clearRect(0,0,canvas.width,canvas.height);
+    }
+
+    async function downloadPDF() {
+
+      const name = document.getElementById("farmerName").value || "Unknown Farmer";
+      const results = document.getElementById("soilResults").value;
+      const dateTime = new Date().toLocaleString();
+
+      // Fill certificate preview
+      document.getElementById("cName").innerText = name;
+      document.getElementById("cDate").innerText = dateTime;
+      document.getElementById("cResults").innerText = results;
+
+      // Copy signature to certificate
+      const cSig = document.getElementById("cSignature").getContext("2d");
+      cSig.clearRect(0,0,400,150);
+      cSig.drawImage(canvas, 0, 0);
+
+      const certificate = document.getElementById("reportCertificate");
+      certificate.style.display = "block";
+
+      const canvasPDF = await html2canvas(certificate, { scale: 2 });
+      const imgData = canvasPDF.toDataURL("image/png");
+
+      const { jsPDF } = window.jspdf;
+      const pdf = new jsPDF("p", "pt", "a4");
+
+      const width = pdf.internal.pageSize.getWidth();
+      const height = (canvasPDF.height * width) / canvasPDF.width;
+
+      pdf.addImage(imgData, "PNG", 0, 0, width, height);
+      pdf.save(`SmartAppleLab_Soil_Report_${name}.pdf`);
+    }
+  </script>
+
+</body>
+</html>

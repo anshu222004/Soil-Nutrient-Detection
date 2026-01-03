@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soil Testing Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 500px;
+            color: white;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            max-height: 95vh;
+            overflow-y: auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+
+        label { font-weight: bold; display: block; margin-top: 12px; }
+
+        input, select {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #00e676;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover { background: #1de9b6; transform: scale(1.05); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Soil Testing Form</h2>
+    <form action="/analyze_soil" method="POST">
+        <label>Soil pH</label>
+        <input type="number" step="0.1" name="pH" placeholder="6.5" required>
+
+        <label>Nitrogen (N)</label>
+        <input type="number" name="Nitrogen" placeholder="ppm" required>
+
+        <label>Phosphorus (P)</label>
+        <input type="number" name="Phosphorus" placeholder="ppm" required>
+
+        <label>Potassium (K)</label>
+        <input type="number" name="Potassium" placeholder="ppm" required>
+
+        <label>Calcium (Ca)</label>
+        <input type="number" name="Calcium" placeholder="ppm" required>
+
+        <label>Magnesium (Mg)</label>
+        <input type="number" name="Magnesium" placeholder="ppm" required>
+
+        <label>Iron (Fe)</label>
+        <input type="number" name="Iron" placeholder="ppm" required>
+
+        <label>Zinc (Zn)</label>
+        <input type="number" name="Zinc" placeholder="ppm" required>
+
+        <label>Copper (Cu)</label>
+        <input type="number" name="Copper" placeholder="ppm" required>
+
+        <label>Boron (B)</label>
+        <input type="number" name="Boron" placeholder="ppm" required>
+
+        <label>Organic Matter (%)</label>
+        <input type="number" step="0.1" name="Organic_Matter" placeholder="2.0" required>
+
+        <label>Region</label>
+        <select name="Region" required>
+            <option value="">Select Region</option>
+            <option value="Himachal">Himachal</option>
+            <option value="Kashmir">Kashmir</option>
+            <option value="Uttarakhand">Uttarakhand</option>
+            <option value="Shimla">Shimla</option>
+            <option value="Manali">Manali</option>
+            <option value="California">California</option>
+            <option value="New York">New York</option>
+            <option value="Washington">Washington</option>
+            <option value="Ontario">Ontario</option>
+            <option value="Quebec">Quebec</option>
+            <option value="Chile">Chile</option>
+            <option value="France">France</option>
+            <option value="Italy">Italy</option>
+            <option value="Germany">Germany</option>
+            <option value="Japan">Japan</option>
+        </select>
+
+        <button type="submit">Analyze Soil</button>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Soil Analysis Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+                        url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6') no-repeat center center;
+            background-size: cover;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(12px);
+            border-radius: 20px;
+            padding: 30px;
+            width: 500px;
+            color: white;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.3);
+            max-height: 95vh;
+            overflow-y: auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        h2 { text-align: center; text-transform: uppercase; letter-spacing: 2px; }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            font-size: 16px;
+        }
+
+        th, td {
+            text-align: left;
+            padding: 8px 12px;
+        }
+
+        th {
+            background-color: rgba(0, 230, 118, 0.7);
+        }
+
+        tr:nth-child(even) {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .prediction {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            color: #00e676;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background: #00e676;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        button:hover { background: #1de9b6; transform: scale(1.05); }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Soil Analysis Result</h2>
+
+    <table>
+        <tr><th>Parameter</th><th>Value</th></tr>
+        <tr><td>Soil pH</td><td>{{ pH }}</td></tr>
+        <tr><td>Nitrogen (N)</td><td>{{ Nitrogen }}</td></tr>
+        <tr><td>Phosphorus (P)</td><td>{{ Phosphorus }}</td></tr>
+        <tr><td>Potassium (K)</td><td>{{ Potassium }}</td></tr>
+        <tr><td>Calcium (Ca)</td><td>{{ Calcium }}</td></tr>
+        <tr><td>Magnesium (Mg)</td><td>{{ Magnesium }}</td></tr>
+        <tr><td>Iron (Fe)</td><td>{{ Iron }}</td></tr>
+        <tr><td>Zinc (Zn)</td><td>{{ Zinc }}</td></tr>
+        <tr><td>Copper (Cu)</td><td>{{ Copper }}</td></tr>
+        <tr><td>Boron (B)</td><td>{{ Boron }}</td></tr>
+        <tr><td>Organic Matter (%)</td><td>{{ Organic_Matter }}</td></tr>
+        <tr><td>Region</td><td>{{ Region }}</td></tr>
+    </table>
+
+    <div class="prediction">
+        Predicted Deficiency: {{ Predicted_Deficiency }}
+    </div>
+
+    <!-- ONLY ONE BUTTON, WORKS IN FLASK -->
+    <form action="/analyze_soil" method="POST">
+        <button type="submit">Analyze Another Sample</button>
+    </form>
+
+</div>
+</body>
+</html>
